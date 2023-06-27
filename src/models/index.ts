@@ -1,11 +1,9 @@
-import User from "./users.model";
-import Roles from "./roles.model";
-import Tokens from "./token.model";
+import Inventory from "./inventory.model";
+import Sales from "./sales.model";
 
 const Model = {
-    User,
-    Roles,
-    Tokens
+    Inventory,
+    Sales
 }
 
 export default Model;

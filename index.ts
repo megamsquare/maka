@@ -32,12 +32,11 @@ app.use(express.json());
 app.use(helmet());
 
 // Routers
-app.use('/api', routers)
+app.use('', routers)
 app.use(Middleware.NotFoundMiddleware)
 
 async function start() {
     try {
-        await db.caching.connect_redis();
         await db.mongo_db(mongo_url)
         app.listen(port, () => {
             console.log(`Server is listening to port: ${port}...`);

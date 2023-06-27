@@ -1,13 +1,9 @@
-import AuthService from "./auth.service";
-import RoleService from "./role.service";
-import UserService from "./user.service";
-import TokenService from "./token.service";
+import InventoryService from "./inventory.service";
+import SalesService from "./sales.service";
 
 const Services = {
-    AuthService,
-    RoleService,
-    UserService,
-    TokenService
+    InventoryService,
+    SalesService
 };
 
 export default Services;

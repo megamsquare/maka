@@ -15,4 +15,7 @@ RUN npm run build
 
 EXPOSE 3001
 
-CMD ["node", "dist/index.js"]
+RUN npm install wait-for
+
+# CMD ["node", "dist/index.js"]
+CMD sh -c 'node dist/index.js & npm exec wait-on http://localhost:3001 && mocha --require dist/**/*.test.js'
