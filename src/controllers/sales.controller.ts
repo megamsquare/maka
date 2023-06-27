@@ -13,7 +13,11 @@ async function buy(req: Request, res: Response) {
 
         const savedSale = await Services.SalesService.createSale(newSale);
         if (savedSale instanceof Error) {
-            res.status(400).json({message: savedSale.message});
+            if (savedSale.message === "Invalid Item Id") {
+                res.status(404).json({ message: savedSale.message });
+                return
+            }
+            res.status(409).json({ message: savedSale.message });
             return
         }
         res.status(200).json({ message: `${savedSale.itemName} sold` })
@@ -31,7 +35,7 @@ async function getSales(req: Request, res: Response) {
     try {
         const getSales: GetSales = {
             showId: Number(req.params.show_ID),
-            itemId: Number(req.params.item_ID), 
+            itemId: Number(req.params.item_ID),
         }
 
         const getAllSales = await Services.SalesService.getSalesByShowId(getSales)

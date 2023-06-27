@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { NewInventory } from "../cases/inventory.case";
 import Services from "../services";
+import status_code from 'http-status';
 
 
 async function create(req: Request, res: Response) {
@@ -9,7 +10,7 @@ async function create(req: Request, res: Response) {
 
         await Services.InventoryService.createInventory(newInventory)
         
-        res.status(201).json({message: "Created Successfully"});
+        res.status(status_code.CREATED).json({message: "Created Successfully"});
     } catch (error) {
         if (error instanceof Error) {
             console.log(error)
