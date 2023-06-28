@@ -7,7 +7,7 @@ const SalesSchema = new mongoose.Schema({
         required: true
     },
     showId: {
-        type: String,
+        type: Number,
         required: true
     },
     quantity: {

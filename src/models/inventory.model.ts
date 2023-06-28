@@ -18,7 +18,7 @@ const Inventorychema = new mongoose.Schema({
 });
 
 const Inventory = mongoose.model(
-    "inventory",
+    "inventories",
     Inventorychema
 )
 

@@ -35,17 +35,20 @@ async function getSales(req: Request, res: Response) {
     try {
         const getSales: GetSales = {
             showId: Number(req.params.show_ID),
-            itemId: Number(req.params.item_ID),
+            itemId: !req.params.item_ID ? 0 : Number(req.params.item_ID),
         }
+        console.log(req.params.item_ID)
 
         const getAllSales = await Services.SalesService.getSalesByShowId(getSales)
         if (getAllSales instanceof Error) {
+            console.log(getAllSales);
             res.status(400).json(getAllSales);
             return
         }
         res.status(200).json(getAllSales)
     } catch (error) {
         if (error instanceof Error) {
+            console.log(error);
             res.status(400).json(error)
         }
     }
