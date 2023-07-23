@@ -85,7 +85,11 @@ Example Response Body:
 { "itemID": 12345, "itemName": "Fancy Dress", "quantity_sold": 4 }
 
 ### Testing
-This runs in docker after the server is up and running
+To test, you need to run the below syntax in your terminal:
+
+```bash
+npm test
+```
 
 ### Technologies Used
 - Node.js
